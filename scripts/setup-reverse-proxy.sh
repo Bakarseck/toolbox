@@ -35,6 +35,11 @@ EOF
 # Activer la config
 sudo ln -s "$nginx_conf" "$nginx_link"
 
+# Install certbot
+sudo apt update -y
+sudo apt install certbot python3-certbot-nginx -y
+
+# Generate certificate for domain
 sudo certbot --nginx -d $domain
 
 # Vérifier et recharger Nginx
